@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Mission Page";
+
+    BoxModel box = new BoxModel{Id = 142};
+}
+
+@using Todo.Views.Helpers
+
+<div class="container">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Mission" asp-action="Index">Home</a>
+    @Html.CustomButton("Click Me", "btn btn-primary")
+
+    
+    @if (box.Id == 143)
+    {
+        @* @await Html.PartialAsync("_Box", box) *@
+        @Html.CustomButton(@box.Id.ToString(), "btn btn-primary")
+    }
+    else
+    {
+        @Html.CustomButton("Not 143", "btn btn-secondary")
+    }
+
+    
+</div>
