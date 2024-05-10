@@ -1,7 +1,10 @@
+using Todo.Classes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<HttpHandler>();
 
 var app = builder.Build();
 

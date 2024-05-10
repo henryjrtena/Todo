@@ -3,6 +3,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to Mission</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (@ViewBag.Result != "1")
+    {
+        @ViewBag.Result
+    }
+    else
+    {
+        <p>Loading...</p>
+    }
 </div>

@@ -1,16 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Todo.Classes;
 using Todo.Models;
 
 namespace Todo.Controllers
 {
-    public class HomeController(ILogger<HomeController> logger) : Controller
+    public class HomeController(ILogger<HomeController> logger, HttpHandler http) : Controller
     {
         private readonly ILogger<HomeController> _logger = logger;
 
         public IActionResult Index() => View();
 
-        public IActionResult Privacy() => View();
+        public async Task<IActionResult> Privacy()
+        {
+
+            var result = await http.GetAsync("https://jsonplaceholder.typicode.com/todos/1");
+
+            ViewBag.Result = result ?? "1";
+
+            return View();
+        }
 
         public IActionResult About() => View();
 

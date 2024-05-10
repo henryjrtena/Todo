@@ -4,9 +4,6 @@ namespace Todo.Controllers
 {
     public class MissionController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }
